@@ -22,6 +22,9 @@ function LocationDetails() {
   const [newReport, setNewReport] = useState('')
 
   const estimatedWaitTime = calculateEstimatedWaitTime(reports)
+  const latestReports = [...reports].slice(-5).reverse()
+  const shortestWait = Math.min(...reports)
+  const longestWait = Math.max(...reports)
 
   function handleSubmit(event) {
     event.preventDefault()
@@ -65,6 +68,37 @@ function LocationDetails() {
           <button type="submit">Pošalji prijavu</button>
         </form>
       </section>
+      <section className="analytics-card">
+  <h2>Sažetak prijava</h2>
+
+  <div className="analytics-grid">
+    <div className="analytics-box">
+      <span>Najkraće</span>
+      <strong>{shortestWait} min</strong>
+    </div>
+
+    <div className="analytics-box">
+      <span>Najduže</span>
+      <strong>{longestWait} min</strong>
+    </div>
+
+    <div className="analytics-box">
+      <span>Prijava ukupno</span>
+      <strong>{reports.length}</strong>
+    </div>
+  </div>
+
+  <div className="reports-list">
+    <h3>Zadnje prijave korisnika</h3>
+
+    {latestReports.map((report, index) => (
+      <div key={index} className="report-item">
+        <span>Prijava {latestReports.length - index}</span>
+        <strong>{report} min</strong>
+      </div>
+    ))}
+  </div>
+</section>
     </main>
   )
 }

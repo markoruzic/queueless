@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f7fb;
+  color: #1f2937;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+main {
+  padding: 24px 16px;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+p {
+  line-height: 1.5;
+}
+
+.location-card {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.location-card h2 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.location-card p {
+  margin-bottom: 6px;
+  color: #4b5563;
+}

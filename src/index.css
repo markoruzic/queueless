@@ -28,6 +28,7 @@ p {
 }
 
 .location-card {
+  display: block;
   background: white;
   border-radius: 16px;
   padding: 16px;
@@ -45,6 +46,11 @@ p {
   color: #4b5563;
 }
 
+.location-card strong {
+  display: inline-block;
+  margin-top: 4px;
+}
+
 input, select {
   width: 100%;
   padding: 10px;
@@ -52,4 +58,9 @@ input, select {
   border-radius: 10px;
   border: 1px solid #ddd;
   font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

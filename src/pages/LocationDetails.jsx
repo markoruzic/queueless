@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { locations } from '../data/locations'
+import { calculateEstimatedWaitTime } from '../services/waitTimeService'
 
 function LocationDetails() {
   const { id } = useParams()
@@ -20,9 +21,7 @@ function LocationDetails() {
   const [reports, setReports] = useState(location.reports)
   const [newReport, setNewReport] = useState('')
 
-  const averageWaitTime = Math.round(
-    reports.reduce((sum, value) => sum + value, 0) / reports.length
-  )
+  const estimatedWaitTime = calculateEstimatedWaitTime(reports)
 
   function handleSubmit(event) {
     event.preventDefault()
@@ -47,8 +46,9 @@ function LocationDetails() {
         <p className="details-category">{location.category}</p>
         <h1>{location.name}</h1>
         <p className="details-wait-time">
-          Procijenjeno čekanje: {averageWaitTime} min
+            Procijenjeno čekanje: {estimatedWaitTime} min
         </p>
+        <p className="details-note">AI-assisted procjena temeljena na prijavama korisnika</p>
         <p>Broj prijava korisnika: {reports.length}</p>
       </section>
 

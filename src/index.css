@@ -92,3 +92,33 @@ a {
   font-weight: 700;
   font-size: 18px;
 }
+
+.report-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-top: 16px;
+}
+
+.report-card h2 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.report-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  background: #111827;
+  color: white;
+}

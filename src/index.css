@@ -285,3 +285,284 @@ button {
   margin-top: 12px;
   color: #4b5563;
 }
+
+.app-header {
+  margin-bottom: 22px;
+}
+
+.eyebrow {
+  color: #2563eb;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.controls-section input {
+  height: 46px;
+}
+
+.category-chips {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.chip {
+  border: 1px solid #d1d5db;
+  background: white;
+  color: #1f2937;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.chip-active {
+  background: #111827;
+  color: white;
+  border-color: #111827;
+}
+
+.map-placeholder {
+  position: relative;
+  overflow: hidden;
+}
+
+.map-pins {
+  position: relative;
+  min-height: 150px;
+}
+
+.map-pin {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.map-pin-low {
+  background: #16a34a;
+  left: 18%;
+  top: 42%;
+}
+
+.map-pin-medium {
+  background: #f59e0b;
+  left: 48%;
+  top: 28%;
+}
+
+.map-pin-high {
+  background: #ef4444;
+  right: 16%;
+  top: 48%;
+}
+
+.location-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.location-category {
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.wait-badge {
+  min-width: 72px;
+  text-align: center;
+  border-radius: 999px;
+  padding: 10px 12px;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.wait-low {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.wait-medium {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.wait-high {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.queue-map {
+  width: 100%;
+  height: 420px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.leaflet-container {
+  font-family: inherit;
+}
+
+.map-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  overflow: hidden;
+}
+
+.fullscreen-map {
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+}
+
+.map-top-panel {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  right: 24px;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.map-top-panel input,
+.map-top-panel button,
+.category-chips {
+  pointer-events: auto;
+}
+
+.brand-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: #111827;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+}
+
+.brand-row h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.map-top-panel input {
+  max-width: 520px;
+  background: white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.category-chips {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  max-width: 100%;
+  padding-bottom: 4px;
+}
+
+.chip {
+  border: none;
+  background: white;
+  color: #111827;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.chip-active {
+  background: #111827;
+  color: white;
+}
+
+.map-bottom-panel {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  z-index: 500;
+  background: white;
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.16);
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.map-bottom-panel .section-header {
+  margin-bottom: 12px;
+}
+
+.map-bottom-panel h2 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.map-bottom-panel span {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.map-location-list {
+  display: grid;
+  gap: 10px;
+}
+
+.map-location-list .location-card {
+  margin-top: 0;
+  box-shadow: none;
+  background: #f5f7fb;
+}
+
+.map-popup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 150px;
+}
+
+.map-popup span {
+  color: #6b7280;
+}
+
+.map-popup p {
+  font-weight: 700;
+}
+
+.popup-link {
+  display: inline-block;
+  margin-top: 6px;
+  background: #111827;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 700;
+}

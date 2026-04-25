@@ -31,7 +31,7 @@ function LocationDetails() {
 
     const reportValue = Number(newReport)
 
-    if (!reportValue || reportValue < 1) {
+    if (!reportValue || reportValue < 1 || reportValue > 180) {
       return
     }
 
@@ -61,6 +61,8 @@ function LocationDetails() {
         <form onSubmit={handleSubmit} className="report-form">
           <input
             type="number"
+            min="1"
+            max="180"
             placeholder="Unesi broj minuta"
             value={newReport}
             onChange={(event) => setNewReport(event.target.value)}

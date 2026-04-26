@@ -2,6 +2,7 @@ import { useState } from 'react'
 import QueueMap from '../components/QueueMap'
 import LocationCard from '../components/LocationCard'
 import { locations } from '../data/locations'
+import BottomNavigation from '../components/BottomNavigation'
 
 const categories = ['Sve', 'Pošta', 'Banka', 'Ljekarna']
 
@@ -65,6 +66,7 @@ function Home() {
           ))}
         </div>
       </section>
+      <BottomNavigation />
     </main>
   )
 }

@@ -33,17 +33,17 @@ function QueueMap({ locations }) {
             weight: 3
           }}
         >
-          <Popup>
-            <div className="map-popup">
-              <strong>{location.name}</strong>
-              <span>{location.category}</span>
-              <p>{location.waitTime} min čekanja</p>
+         <Popup className="queue-leaflet-popup">
+  <div className="map-popup">
+    <strong>{location.name}</strong>
+    <span>{location.category}</span>
+    <p>{location.waitTime} min čekanja</p>
 
-              <Link to={`/location/${location.id}`} className="popup-link">
-                Pogledaj detalje
-              </Link>
-            </div>
-          </Popup>
+    <Link to={`/location/${location.id}`} className="popup-link">
+      Pogledaj detalje
+    </Link>
+  </div>
+</Popup>
         </CircleMarker>
       ))}
     </MapContainer>

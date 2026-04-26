@@ -40,13 +40,14 @@ h1 {
 }
 
 input,
-select {
+select,
+textarea {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   margin-top: 12px;
   border-radius: 10px;
   border: 1px solid #ddd;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 button {
@@ -102,7 +103,8 @@ button {
 .map-top-panel input {
   width: 100%;
   max-width: none;
-  height: 44px;
+  height: 46px;
+  font-size: 16px;
   background: white;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
@@ -166,7 +168,7 @@ button {
   position: absolute;
   left: 12px;
   right: 12px;
-  bottom: 12px;
+  bottom: 88px;
   z-index: 500;
   background: white;
   border-radius: 20px;
@@ -528,6 +530,11 @@ button {
   width: 100%;
 }
 
+.report-form input {
+  font-size: 16px;
+  height: 46px;
+}
+
 /* ================= ANALYTICS ================= */
 
 .analytics-grid {
@@ -663,4 +670,109 @@ button {
     border-radius: 20px;
     padding: 20px;
   }
+}
+
+.queue-leaflet-popup .leaflet-popup-content-wrapper {
+  background: #ffffff !important;
+  border-radius: 18px !important;
+  padding: 0 !important;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.28) !important;
+  border: 1px solid rgba(226, 232, 240, 0.9) !important;
+}
+
+.queue-leaflet-popup .leaflet-popup-content {
+  margin: 0 !important;
+  padding: 0 !important;
+  min-width: 190px;
+}
+
+.queue-leaflet-popup .leaflet-popup-tip {
+  background: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.queue-leaflet-popup .leaflet-popup-close-button {
+  color: #111827 !important;
+  top: 8px !important;
+  right: 8px !important;
+}
+
+.queue-leaflet-popup .map-popup {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.queue-leaflet-popup .map-popup strong {
+  color: #111827;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.queue-leaflet-popup .map-popup span {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.queue-leaflet-popup .map-popup p {
+  color: #111827;
+  font-size: 14px;
+  font-weight: 800;
+  margin: 4px 0 0;
+}
+
+.queue-leaflet-popup .popup-link {
+  display: block;
+  margin-top: 10px;
+  background: #111827;
+  color: #ffffff !important;
+  padding: 10px 12px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+/* ================= BOTTOM NAVIGATION ================= */
+
+.bottom-navigation {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 700;
+  height: 64px;
+  background: white;
+  border-radius: 22px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.22);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: #6b7280;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.bottom-nav-item span {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.bottom-nav-item small {
+  font-size: 11px;
+}
+
+.bottom-nav-item-active {
+  color: #111827;
 }

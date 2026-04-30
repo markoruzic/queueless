@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 
 function getWaitTimeClass(waitTime) {
-  if (waitTime <= 10) return 'wait-low'
-  if (waitTime <= 20) return 'wait-medium'
+  if (waitTime <= 15) return 'wait-low'
+  if (waitTime <= 35) return 'wait-medium'
   return 'wait-high'
 }
 

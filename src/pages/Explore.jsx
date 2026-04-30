@@ -38,23 +38,24 @@ function Explore() {
       </section>
 
       <div className="search-wrapper">
-  <input
-    type="text"
-    placeholder="Pretraži lokaciju..."
-    value={search}
-    onChange={(event) => setSearch(event.target.value)}
-  />
+        <input
+          type="text"
+          placeholder="Pretraži lokaciju..."
+          value={search}
+          onChange={(event) => setSearch(event.target.value)}
+        />
 
-  {search && (
-    <button
-      type="button"
-      className="search-clear-button"
-      onClick={() => setSearch('')}
-    >
-      ×
-    </button>
-  )}
-</div>
+        {search && (
+          <button
+            type="button"
+            className="search-clear-button"
+            onClick={() => setSearch('')}
+          >
+            ×
+          </button>
+        )}
+      </div>
+
       <div className="category-chips explore-chips">
         {categories.map((item) => (
           <button
@@ -68,26 +69,22 @@ function Explore() {
         ))}
       </div>
 
-      {filteredLocations.length > 0 ? (
-  filteredLocations.map((location) => (
-    <LocationCard key={location.id} location={location} />
-  ))
-) : (
-  <div className="empty-results-card">
-    <h3>Nema pronađenih lokacija</h3>
-    <p>Pokušaj promijeniti pretragu ili odabrati drugu kategoriju.</p>
-  </div>
-)}
-
       <section className="explore-list">
         <div className="section-header">
           <h2>Lokacije u blizini</h2>
           <span>{filteredLocations.length} rezultata</span>
         </div>
 
-        {filteredLocations.map((location) => (
-          <LocationCard key={location.id} location={location} />
-        ))}
+        {filteredLocations.length > 0 ? (
+          filteredLocations.map((location) => (
+            <LocationCard key={location.id} location={location} />
+          ))
+        ) : (
+          <div className="empty-results-card">
+            <h3>Nema pronađenih lokacija</h3>
+            <p>Pokušaj promijeniti pretragu ili odabrati drugu kategoriju.</p>
+          </div>
+        )}
       </section>
 
       <BottomNavigation />

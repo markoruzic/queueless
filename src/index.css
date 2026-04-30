@@ -927,9 +927,11 @@ button {
 .search-wrapper {
   position: relative;
   width: 100%;
+  margin-top: 12px;
 }
 
 .search-wrapper input {
+  margin-top: 0;
   padding-right: 44px;
 }
 
@@ -945,7 +947,9 @@ button {
   background: #f3f4f6;
   color: #4b5563;
   font-size: 20px;
-  line-height: 1;
+  line-height: 30px;
+  display: grid;
+  place-items: center;
   box-shadow: none;
 }
 

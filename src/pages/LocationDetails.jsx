@@ -1,7 +1,19 @@
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { locations } from '../data/locations'
 import { calculateEstimatedWaitTime } from '../services/waitTimeService'
+
+function getCategoryIcon(category) {
+  if (category === 'Pošta') return '📮'
+  if (category === 'Banka') return '🏦'
+  if (category === 'Ljekarna') return '💊'
+  if (category === 'Bolnica') return '🏥'
+  if (category === 'Kafić') return '☕'
+  if (category === 'Restoran') return '🍽️'
+  if (category === 'Trgovina') return '🛒'
+  if (category === 'Teretana') return '🏋️'
+  return '📍'
+}
 
 function getStatus(waitTime) {
   if (waitTime <= 15) {
@@ -32,6 +44,7 @@ function getStatus(waitTime) {
 
 function LocationDetails() {
   const { id } = useParams()
+  const navigate = useNavigate()
   const location = locations.find((item) => item.id === Number(id))
 
   if (!location) {
@@ -68,10 +81,16 @@ function LocationDetails() {
 
   return (
     <main className="details-page improved-details-page">
-      <Link to="/" className="back-link">← Back</Link>
+      <button
+  type="button"
+  className="back-link back-button"
+  onClick={() => navigate(-1)}
+>
+  ← Back
+</button>
 
       <section className="location-hero">
-        <div className="location-icon">{location.category[0]}</div>
+        <div className="location-icon">{getCategoryIcon(location.category)}</div>
 
         <div>
           <h1>{location.name}</h1>

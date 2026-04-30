@@ -135,6 +135,7 @@ button {
   display: flex;
   gap: 8px;
   width: 100%;
+  margin-top: 10px;
   overflow-x: auto;
   overflow-y: hidden;
   padding-bottom: 4px;
@@ -147,7 +148,7 @@ button {
 
 .chip {
   flex: 0 0 auto;
-  border: none;
+  border: 1px solid #e5e7eb;
   background: white;
   color: #111827;
   border-radius: 999px;
@@ -156,7 +157,6 @@ button {
   font-weight: 700;
   white-space: nowrap;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .chip-active {
@@ -742,13 +742,13 @@ button {
   position: fixed;
   left: 12px;
   right: 12px;
-  bottom: 12px;
+  bottom: 18px;
   z-index: 700;
   height: 64px;
   background: white;
   border-radius: 22px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   align-items: center;
   box-shadow: 0 14px 40px rgba(15, 23, 42, 0.22);
   border: 1px solid rgba(226, 232, 240, 0.9);
@@ -826,4 +826,86 @@ button {
     transform: scale(2.2);
     opacity: 0;
   }
+}
+
+.explore-page {
+  min-height: 100dvh;
+  padding: 20px 16px 96px;
+  background: #f5f7fb;
+}
+
+.explore-header {
+  margin-bottom: 16px;
+}
+
+.explore-header h1 {
+  font-size: 28px;
+}
+
+.explore-header p {
+  color: #6b7280;
+}
+
+.explore-list {
+  margin-top: 28px;
+}
+
+.back-button {
+  background: transparent;
+  color: #111827;
+  padding: 0;
+  border-radius: 0;
+  font-size: 16px;
+  box-shadow: none;
+}
+
+.leaflet-control-attribution {
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+.location-icon {
+  font-size: 24px;
+}
+
+/* ================= PLACEHOLDER PAGES ================= */
+
+.placeholder-page {
+  min-height: 100dvh;
+  padding: 24px 16px 96px;
+  background: #f5f7fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder-card {
+  width: 100%;
+  max-width: 420px;
+  background: white;
+  border-radius: 24px;
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12);
+}
+
+.placeholder-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: #f3f4f6;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 16px;
+  font-size: 28px;
+}
+
+.placeholder-card h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.placeholder-card p {
+  color: #6b7280;
+  margin-top: 10px;
 }

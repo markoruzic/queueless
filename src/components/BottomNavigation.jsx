@@ -12,18 +12,13 @@ const navItems = [
     icon: '🔍'
   },
   {
-    label: 'Rate',
-    path: '/',
-    icon: '➕'
-  },
-  {
     label: 'Community',
-    path: '/',
+    path: '/community',
     icon: '👥'
   },
   {
     label: 'Profile',
-    path: '/',
+    path: '/profile',
     icon: '⚙️'
   }
 ]
@@ -38,7 +33,7 @@ function BottomNavigation() {
           key={item.label}
           to={item.path}
           className={
-            location.pathname === item.path && item.label === 'Map'
+            location.pathname === item.path
               ? 'bottom-nav-item bottom-nav-item-active'
               : 'bottom-nav-item'
           }

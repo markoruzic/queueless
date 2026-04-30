@@ -1,25 +1,26 @@
 import { Link, useLocation } from 'react-router-dom'
+import { FiHome, FiSearch, FiUsers, FiSettings } from 'react-icons/fi'
 
 const navItems = [
   {
-    label: 'Map',
+    label: 'Home',
     path: '/',
-    icon: '🗺️'
+    icon: FiHome
   },
   {
     label: 'Explore',
     path: '/explore',
-    icon: '🔍'
+    icon: FiSearch
   },
   {
     label: 'Community',
     path: '/community',
-    icon: '👥'
+    icon: FiUsers
   },
   {
     label: 'Profile',
     path: '/profile',
-    icon: '⚙️'
+    icon: FiSettings
   }
 ]
 
@@ -28,20 +29,25 @@ function BottomNavigation() {
 
   return (
     <nav className="bottom-navigation">
-      {navItems.map((item) => (
-        <Link
-          key={item.label}
-          to={item.path}
-          className={
-            location.pathname === item.path
-              ? 'bottom-nav-item bottom-nav-item-active'
-              : 'bottom-nav-item'
-          }
-        >
-          <span>{item.icon}</span>
-          <small>{item.label}</small>
-        </Link>
-      ))}
+      {navItems.map((item) => {
+        const Icon = item.icon
+        const isActive = location.pathname === item.path
+
+        return (
+          <Link
+  key={item.label}
+  to={item.path}
+  className={
+    location.pathname === item.path
+      ? 'bottom-nav-item bottom-nav-item-active'
+      : 'bottom-nav-item'
+  }
+>
+  <Icon size={20} />
+  <small>{item.label}</small>
+</Link>
+        )
+      })}
     </nav>
   )
 }

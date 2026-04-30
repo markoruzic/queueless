@@ -37,9 +37,11 @@ function Home() {
       <QueueMap locations={filteredLocations} />
 
       <section className="map-top-panel">
-        <div className="brand-row">
-  <img src={logo} alt="QueueLess logo" className="brand-logo" />
-  <h1>QueueLess</h1>
+       <div className="app-hero-header">
+  <div className="app-hero-brand">
+    <img src={logo} alt="QueueLess logo" className="hero-logo" />
+    <h1>Queueless</h1>
+  </div>
 </div>
 
         <div className="search-wrapper">

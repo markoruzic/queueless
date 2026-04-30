@@ -747,43 +747,68 @@ button {
 
 /* ================= BOTTOM NAVIGATION ================= */
 
+/* ================= BOTTOM NAVIGATION ================= */
+
 .bottom-navigation {
   position: fixed;
-  left: 12px;
-  right: 12px;
+  left: 14px;
+  right: 14px;
   bottom: 18px;
   z-index: 700;
-  height: 64px;
-  background: white;
-  border-radius: 22px;
+  height: 68px;
+  background: #0a1a39;
+  border-radius: 24px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   align-items: center;
-  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.22);
-  border: 1px solid rgba(226, 232, 240, 0.9);
+  padding: 8px;
+  box-shadow: 0 18px 40px rgba(10, 26, 57, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .bottom-nav-item {
+  height: 48px;
+  min-width: 0;
+  border-radius: 18px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 4px;
-  color: #6b7280;
-  font-weight: 700;
-  font-size: 12px;
+  justify-content: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.58);
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: none;
 }
 
-.bottom-nav-item span {
-  font-size: 18px;
-  line-height: 1;
+.bottom-nav-item svg {
+  width: 20px;
+  height: 20px;
+  color: currentColor;
+  stroke: currentColor;
+  flex-shrink: 0;
 }
 
 .bottom-nav-item small {
-  font-size: 11px;
+  display: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: currentColor;
+  line-height: 1;
 }
 
 .bottom-nav-item-active {
-  color: #111827;
+  background: #436bb3;
+  color: #ffffff;
+}
+
+.bottom-nav-item-active small {
+  display: inline;
+}
+
+.bottom-nav-item-active svg {
+  color: #ffffff;
+  stroke: #ffffff;
 }
 
 .recommendation-details-card {
@@ -1269,20 +1294,20 @@ button:active {
 
 .wait-low,
 .status-low {
-  background: rgba(67, 107, 179, 0.12);
-  color: var(--ql-primary);
+  background: #dcfce7;
+  color: #166534;
 }
 
 .wait-medium,
 .status-medium {
-  background: rgba(10, 26, 57, 0.1);
-  color: var(--ql-navy);
+  background: #fef3c7;
+  color: #92400e;
 }
 
 .wait-high,
 .status-high {
-  background: var(--ql-navy);
-  color: var(--ql-white);
+  background: #fee2e2;
+  color: #991b1b;
 }
 
 .analytics-box,
@@ -1318,10 +1343,16 @@ button:active {
   background: rgba(218, 222, 229, 0.85);
 }
 
-.trend-fill.status-low,
-.trend-fill.status-medium,
+.trend-fill.status-low {
+  background: #22c55e;
+}
+
+.trend-fill.status-medium {
+  background: #f59e0b;
+}
+
 .trend-fill.status-high {
-  background: linear-gradient(90deg, #436bb3 0%, #0a1a39 100%);
+  background: #ef4444;
 }
 
 .queue-leaflet-popup .leaflet-popup-content-wrapper {
@@ -1391,4 +1422,108 @@ button:active {
   .placeholder-card {
     border-radius: 22px;
   }
+}
+
+.app-hero-header {
+  background: #0a1a39;
+  border-radius: 24px;
+  padding: 16px 18px;
+  box-shadow: 0 12px 30px rgba(10, 26, 57, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.app-hero-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+}
+
+.app-hero-brand h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+main,
+.explore-page,
+.improved-details-page,
+.placeholder-page {
+  padding-bottom: 110px;
+}
+
+/* ================= FINAL BOTTOM NAVIGATION OVERRIDE ================= */
+
+.bottom-navigation {
+  position: fixed;
+  left: 14px;
+  right: 14px;
+  bottom: 18px;
+  z-index: 700;
+  height: 68px;
+  background: #0a1a39 !important;
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  padding: 8px;
+  box-shadow: 0 18px 40px rgba(10, 26, 57, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.bottom-nav-item {
+  height: 44px;
+  min-width: 0;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.58) !important;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: none;
+  background: transparent;
+}
+
+.bottom-nav-item svg {
+  width: 19px;
+  height: 19px;
+  color: currentColor;
+  stroke: currentColor;
+  flex-shrink: 0;
+}
+
+.bottom-nav-item small {
+  display: none;
+  font-size: 11px;
+  font-weight: 600;
+  color: currentColor;
+  line-height: 1;
+}
+
+.bottom-nav-item-active {
+  background: #436bb3 !important;
+  color: #ffffff !important;
+  padding: 0 10px;
+}
+
+.bottom-nav-item-active small {
+  display: inline;
+}
+
+.bottom-nav-item-active svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
 }

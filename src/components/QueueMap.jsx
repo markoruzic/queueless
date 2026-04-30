@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import { MapContainer, TileLayer, CircleMarker, Popup, useMapEvents } from 'react-leaflet'
 
 function getMarkerColor(waitTime) {
-  if (waitTime <= 10) return '#16a34a'
-  if (waitTime <= 20) return '#f59e0b'
+  if (waitTime <= 15) return '#22c55e'
+  if (waitTime <= 35) return '#f59e0b'
   return '#ef4444'
 }
 

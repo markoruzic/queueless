@@ -3,22 +3,22 @@ import { FiHome, FiSearch, FiUsers, FiSettings } from 'react-icons/fi'
 
 const navItems = [
   {
-    label: 'Home',
+    label: 'Mapa',
     path: '/',
     icon: FiHome
   },
   {
-    label: 'Explore',
+    label: 'Istraži',
     path: '/explore',
     icon: FiSearch
   },
   {
-    label: 'Community',
+    label: 'Zajednica',
     path: '/community',
     icon: FiUsers
   },
   {
-    label: 'Profile',
+    label: 'Profil',
     path: '/profile',
     icon: FiSettings
   }
@@ -35,17 +35,17 @@ function BottomNavigation() {
 
         return (
           <Link
-  key={item.label}
-  to={item.path}
-  className={
-    location.pathname === item.path
-      ? 'bottom-nav-item bottom-nav-item-active'
-      : 'bottom-nav-item'
-  }
->
-  <Icon size={20} />
-  <small>{item.label}</small>
-</Link>
+            key={item.label}
+            to={item.path}
+            className={
+              isActive
+                ? 'bottom-nav-item bottom-nav-item-active'
+                : 'bottom-nav-item'
+            }
+          >
+            <Icon size={20} />
+            <small>{item.label}</small>
+          </Link>
         )
       })}
     </nav>

@@ -4,26 +4,25 @@ import { useUserProgress } from '../context/UserProgressContext'
 function Community() {
   const { progress, contributorLevel } = useUserProgress()
 
-  const yourScore = Math.round(
-    progress.reliabilityScore * 0.6 + progress.points * 0.4
-  )
+  const yourScore = progress.points
 
   const users = [
     {
       id: 1,
       username: 'ktbobas',
-      level: 'Active Contributor',
+      level: 'Aktivni doprinositelj',
       reports: 6,
-      score: 46,
+      score: 60,
       avatar: 'K'
     },
     {
       id: 2,
-      username: 'Your Profile',
+      username: 'Tvoj profil',
       level: contributorLevel,
       reports: progress.reports,
       score: yourScore,
-      avatar: 'Y'
+      avatar: 'T',
+      isCurrentUser: true
     }
   ].sort((a, b) => b.score - a.score)
 
@@ -33,22 +32,22 @@ function Community() {
         <div>
           <div className="community-title-row">
             <span className="community-title-icon">🛡️</span>
-            <h1>Community</h1>
+            <h1>Zajednica</h1>
           </div>
 
-          <p>travanj 2026. leaderboard</p>
+          <p>Ljestvica korisnika za travanj 2026.</p>
         </div>
       </section>
 
       <section className="community-section">
-        <p className="section-label">Top contributors</p>
+        <p className="section-label">Najbolji doprinositelji</p>
 
         <div className="leaderboard-list">
           {users.map((user, index) => (
             <div
               key={user.id}
               className={
-                user.username === 'Your Profile'
+                user.isCurrentUser
                   ? 'leaderboard-card leaderboard-card-current'
                   : 'leaderboard-card'
               }
@@ -64,14 +63,14 @@ function Community() {
                   <h2>{user.username}</h2>
                   <p>
                     {user.level} · {user.reports}{' '}
-                    {user.reports === 1 ? 'report' : 'reports'}
+                    {user.reports === 1 ? 'prijava' : 'prijava'}
                   </p>
                 </div>
               </div>
 
               <div className="leaderboard-score">
                 <strong>{user.score}</strong>
-                <span>score</span>
+                <span>bodova</span>
               </div>
             </div>
           ))}
@@ -81,11 +80,11 @@ function Community() {
       <section className="community-section">
         <div className="section-title-row">
           <span className="rising-icon">🔥</span>
-          <p className="section-label">Rising stars</p>
+          <p className="section-label">Korisnici u usponu</p>
         </div>
 
         <p className="community-muted">
-          New contributors making their mark — keep it up!
+          Novi korisnici koji doprinose zajednici i pomažu drugima izbjeći čekanje.
         </p>
 
         <div className="rising-card">
@@ -93,42 +92,42 @@ function Community() {
             <div className="star-box">☆</div>
 
             <div>
-              <h2>Your Profile</h2>
+              <h2>Tvoj profil</h2>
               <p>
-                {progress.reports} {progress.reports === 1 ? 'report' : 'reports'} ·{' '}
+                {progress.reports} {progress.reports === 1 ? 'prijava' : 'prijava'} ·{' '}
                 {contributorLevel}
               </p>
             </div>
           </div>
 
           <span className="rising-badge">
-            {progress.reports > 0 ? '↗ Rising' : 'Start'}
+            {progress.reports > 0 ? '↗ U usponu' : 'Započni'}
           </span>
         </div>
       </section>
 
       <section className="score-info-card">
-        <p className="section-label">How scores work</p>
+        <p className="section-label">Kako funkcioniraju bodovi</p>
 
         <p>
-          Community score is calculated from reliability and earned points.
-          Accurate crowd reports improve your score and help other users avoid
-          unnecessary waiting.
+          Bodovi zajednice temelje se na korisničkim doprinosima. Slanjem točnih
+          prijava gužve skupljaš bodove, povećavaš pouzdanost i pomažeš drugim
+          korisnicima izbjeći nepotrebno čekanje.
         </p>
 
         <div className="score-breakdown">
           <div>
-            <span>Reliability</span>
+            <span>Pouzdanost</span>
             <strong>{progress.reliabilityScore}</strong>
           </div>
 
           <div>
-            <span>Points</span>
+            <span>Bodovi</span>
             <strong>{progress.points}</strong>
           </div>
 
           <div>
-            <span>Reports</span>
+            <span>Prijave</span>
             <strong>{progress.reports}</strong>
           </div>
         </div>

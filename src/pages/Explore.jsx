@@ -33,7 +33,7 @@ function Explore() {
   return (
     <main className="explore-page">
       <section className="explore-header">
-        <h1>Explore</h1>
+        <h1>Istraži</h1>
         <p>Pregledaj lokacije i pronađi najkraće čekanje.</p>
       </section>
 
@@ -50,6 +50,7 @@ function Explore() {
             type="button"
             className="search-clear-button"
             onClick={() => setSearch('')}
+            aria-label="Očisti pretragu"
           >
             ×
           </button>

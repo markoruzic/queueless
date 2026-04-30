@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import QueueMap from '../components/QueueMap'
-import LocationCard from '../components/LocationCard'
-import { locations } from '../data/locations'
 import BottomNavigation from '../components/BottomNavigation'
+import { locations } from '../data/locations'
 import logo from '../assets/Logo.png'
 
 const categories = [
@@ -37,31 +36,32 @@ function Home() {
       <QueueMap locations={filteredLocations} />
 
       <section className="map-top-panel">
-       <div className="app-hero-header">
-  <div className="app-hero-brand">
-    <img src={logo} alt="QueueLess logo" className="hero-logo" />
-    <h1>Queueless</h1>
-  </div>
-</div>
+        <div className="app-hero-header">
+          <div className="app-hero-brand">
+            <img src={logo} alt="QueueLess logo" className="hero-logo" />
+            <h1>QueueLess</h1>
+          </div>
+        </div>
 
         <div className="search-wrapper">
-  <input
-    type="text"
-    placeholder="Pretraži lokaciju..."
-    value={search}
-    onChange={(event) => setSearch(event.target.value)}
-  />
+          <input
+            type="text"
+            placeholder="Pretraži lokaciju..."
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+          />
 
-  {search && (
-    <button
-      type="button"
-      className="search-clear-button"
-      onClick={() => setSearch('')}
-    >
-      ×
-    </button>
-  )}
-</div>
+          {search && (
+            <button
+              type="button"
+              className="search-clear-button"
+              onClick={() => setSearch('')}
+              aria-label="Očisti pretragu"
+            >
+              ×
+            </button>
+          )}
+        </div>
 
         <div className="category-chips">
           {categories.map((item) => (
@@ -75,15 +75,14 @@ function Home() {
             </button>
           ))}
         </div>
+
+        {filteredLocations.length === 0 && (
+          <p className="map-empty-state">
+            Nema pronađenih lokacija za zadanu pretragu.
+          </p>
+        )}
       </section>
 
-      {filteredLocations.length === 0 && (
-  <p className="map-empty-state">
-    Nema pronađenih lokacija za zadanu pretragu.
-  </p>
-)}
-
-     
       <BottomNavigation />
     </main>
   )

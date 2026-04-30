@@ -1,10 +1,17 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { MapContainer, TileLayer, CircleMarker, Popup, useMapEvents } from 'react-leaflet'
+import {
+  CircleMarker,
+  MapContainer,
+  Popup,
+  TileLayer,
+  useMapEvents
+} from 'react-leaflet'
 
 function getMarkerColor(waitTime) {
   if (waitTime <= 15) return '#22c55e'
   if (waitTime <= 35) return '#f59e0b'
+
   return '#ef4444'
 }
 
@@ -20,12 +27,15 @@ function ZoomTracker({ onZoomChange }) {
 
 function QueueMap({ locations }) {
   const [zoom, setZoom] = useState(12)
+
   function getMarkerRadius() {
-  if (zoom <= 12) return 7
-  if (zoom <= 14) return 10
-  if (zoom <= 16) return 14
-  return 18
-}
+    if (zoom <= 12) return 7
+    if (zoom <= 14) return 10
+    if (zoom <= 16) return 14
+
+    return 18
+  }
+
   return (
     <MapContainer
       center={[45.815, 15.9819]}
@@ -35,10 +45,11 @@ function QueueMap({ locations }) {
       zoomControl={false}
     >
       <ZoomTracker onZoomChange={setZoom} />
+
       <TileLayer
-  attribution="&copy; OpenStreetMap & Carto"
-  url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-/>
+        attribution="&copy; OpenStreetMap & Carto"
+        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+      />
 
       {locations.map((location) => (
         <CircleMarker
@@ -52,17 +63,17 @@ function QueueMap({ locations }) {
             weight: 2
           }}
         >
-         <Popup className="queue-leaflet-popup" closeButton={false}>
-  <div className="map-popup">
-    <strong>{location.name}</strong>
-    <span>{location.category}</span>
-    <p>{location.waitTime} min čekanja</p>
+          <Popup className="queue-leaflet-popup" closeButton={false}>
+            <div className="map-popup">
+              <strong>{location.name}</strong>
+              <span>{location.category}</span>
+              <p>{location.waitTime} min čekanja</p>
 
-    <Link to={`/location/${location.id}`} className="popup-link">
-      Pogledaj detalje
-    </Link>
-  </div>
-</Popup>
+              <Link to={`/location/${location.id}`} className="popup-link">
+                Pogledaj detalje
+              </Link>
+            </div>
+          </Popup>
         </CircleMarker>
       ))}
     </MapContainer>

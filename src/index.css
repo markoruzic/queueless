@@ -334,7 +334,7 @@ button {
 .status-card,
 .recommendation-card,
 .trend-card,
-.ai-card,
+.recommendation-details-card,
 .report-card,
 .analytics-card {
   background: white;
@@ -430,7 +430,7 @@ button {
 .recommendation-card h2,
 .report-card h2,
 .analytics-card h2,
-.ai-card h2 {
+.recommendation-details-card h2 {
   font-size: 20px;
   margin-bottom: 12px;
 }
@@ -664,7 +664,7 @@ button {
   .status-card,
   .recommendation-card,
   .trend-card,
-  .ai-card,
+  .recommendation-details-card,
   .report-card,
   .analytics-card {
     border-radius: 20px;
@@ -775,4 +775,55 @@ button {
 
 .bottom-nav-item-active {
   color: #111827;
+}
+
+.recommendation-details-card {
+  background: white;
+  border-radius: 18px;
+  padding: 16px;
+  margin-top: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+}
+
+.time-recommendation {
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 14px;
+  margin-top: 10px;
+}
+
+.time-recommendation span {
+  display: block;
+  text-transform: uppercase;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.marker-pulse {
+  position: relative;
+}
+
+.marker-pulse::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: inherit;
+  opacity: 0.4;
+  transform: scale(1);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
 }

@@ -1,5 +1,6 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, CircleMarker, Popup, useMapEvents } from 'react-leaflet'
 
 function getMarkerColor(waitTime) {
   if (waitTime <= 10) return '#16a34a'
@@ -7,7 +8,24 @@ function getMarkerColor(waitTime) {
   return '#ef4444'
 }
 
+function ZoomTracker({ onZoomChange }) {
+  useMapEvents({
+    zoomend(event) {
+      onZoomChange(event.target.getZoom())
+    }
+  })
+
+  return null
+}
+
 function QueueMap({ locations }) {
+  const [zoom, setZoom] = useState(12)
+  function getMarkerRadius() {
+  if (zoom <= 12) return 7
+  if (zoom <= 14) return 10
+  if (zoom <= 16) return 14
+  return 18
+}
   return (
     <MapContainer
       center={[45.815, 15.9819]}
@@ -16,24 +34,25 @@ function QueueMap({ locations }) {
       scrollWheelZoom={true}
       zoomControl={false}
     >
+      <ZoomTracker onZoomChange={setZoom} />
       <TileLayer
-        attribution="&copy; OpenStreetMap contributors"
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+  attribution="&copy; OpenStreetMap & Carto"
+  url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+/>
 
       {locations.map((location) => (
         <CircleMarker
           key={location.id}
           center={location.coordinates}
-          radius={20}
+          radius={getMarkerRadius()}
           pathOptions={{
-            color: getMarkerColor(location.waitTime),
+            color: 'white',
             fillColor: getMarkerColor(location.waitTime),
-            fillOpacity: 0.85,
-            weight: 3
+            fillOpacity: 1,
+            weight: 2
           }}
         >
-         <Popup className="queue-leaflet-popup">
+         <Popup className="queue-leaflet-popup" closeButton={false}>
   <div className="map-popup">
     <strong>{location.name}</strong>
     <span>{location.category}</span>

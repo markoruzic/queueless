@@ -52,20 +52,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="map-bottom-panel">
-        <div className="section-header">
-          <div>
-            <h2>{filteredLocations.length} lokacije u blizini</h2>
-            <span>Real-time procjene čekanja</span>
-          </div>
-        </div>
-
-        <div className="map-location-list">
-          {filteredLocations.map((location) => (
-            <LocationCard key={location.id} location={location} />
-          ))}
-        </div>
-      </section>
+     
       <BottomNavigation />
     </main>
   )

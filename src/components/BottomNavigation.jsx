@@ -8,7 +8,7 @@ const navItems = [
   },
   {
     label: 'Explore',
-    path: '/',
+    path: '/explore',
     icon: '🔍'
   },
   {

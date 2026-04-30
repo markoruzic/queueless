@@ -148,23 +148,36 @@ function LocationDetails() {
         </div>
       </section>
 
-      <section className="ai-card">
-        <h2>AI Insights</h2>
+      <section className="recommendation-details-card">
+  <h2>Najbolje vrijeme za odlazak</h2>
 
-        <div className="insight-item">
-          <span>Best time to visit</span>
-          <strong>{estimatedWaitTime <= 15 ? 'Now' : 'Later today'}</strong>
-        </div>
+  <div className="time-recommendation">
+    <span>Preporuka</span>
+    <strong>
+      {estimatedWaitTime <= 15
+        ? 'Idi sada'
+        : estimatedWaitTime <= 35
+          ? 'Pričekaj 30–60 min'
+          : 'Izbjegni trenutno'}
+    </strong>
+  </div>
 
-        <div className="insight-item">
-          <span>Peak hours</span>
-          <strong>10 AM – 12 PM</strong>
-        </div>
+  <div className="insight-item">
+    <span>Pouzdanost procjene</span>
+    <strong>
+      {reports.length >= 5
+        ? 'Visoka'
+        : reports.length >= 3
+          ? 'Srednja'
+          : 'Niska'}
+    </strong>
+  </div>
 
-        <button type="button" className="ai-button">
-          Get AI recommendation
-        </button>
-      </section>
+  <div className="insight-item">
+    <span>Temeljeno na</span>
+    <strong>{reports.length} korisničkih prijava</strong>
+  </div>
+</section>
 
       
 

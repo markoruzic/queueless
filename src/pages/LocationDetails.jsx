@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { locations } from '../data/locations'
 import { calculateEstimatedWaitTime } from '../services/waitTimeService'
 import { useUserProgress } from '../context/UserProgressContext'
+import { getGeminiRecommendation } from '../services/geminiRecommendationService'
 
 function getCategoryIcon(category) {
   if (category === 'Pošta') return '📮'
@@ -68,6 +69,10 @@ function LocationDetails() {
   const shortestWait = Math.min(...reports)
   const longestWait = Math.max(...reports)
 
+  const [aiRecommendation, setAiRecommendation] = useState('')
+  const [isAiLoading, setIsAiLoading] = useState(false)
+  const [aiError, setAiError] = useState('')
+
   function handleSubmit(event) {
     event.preventDefault()
 
@@ -81,6 +86,31 @@ function LocationDetails() {
     setNewReport('')
     addCrowdReport()
   }
+
+  async function handleAiRecommendation() {
+  setIsAiLoading(true)
+  setAiError('')
+  setAiRecommendation('')
+
+  try {
+    const recommendation = await getGeminiRecommendation({
+      name: location.name,
+      category: location.category,
+      estimatedWaitTime,
+      statusLabel: status.label,
+      reportCount: reports.length,
+      shortestWait,
+      longestWait,
+      recentReports: latestReports
+    })
+
+    setAiRecommendation(recommendation)
+  } catch (error) {
+    setAiError('AI preporuka trenutno nije dostupna. Provjeri API ključ ili pokušaj ponovno kasnije.')
+  } finally {
+    setIsAiLoading(false)
+  }
+}
 
   return (
     <main className="details-page improved-details-page">
@@ -172,35 +202,56 @@ function LocationDetails() {
         </div>
       </section>
 
-      <section className="recommendation-details-card">
-  <h2>Najbolje vrijeme za odlazak</h2>
-
-  <div className="time-recommendation">
-    <span>Preporuka</span>
-    <strong>
-      {estimatedWaitTime <= 15
-        ? 'Idi sada'
-        : estimatedWaitTime <= 35
-          ? 'Pričekaj 30–60 min'
-          : 'Izbjegni trenutno'}
-    </strong>
+      <section className="ai-insights-card">
+  <div className="ai-insights-title">
+    <div className="ai-insights-icon">✣</div>
+    <h2>AI Insights</h2>
   </div>
 
-  <div className="insight-item">
-    <span>Pouzdanost procjene</span>
-    <strong>
-      {reports.length >= 5
-        ? 'Visoka'
-        : reports.length >= 3
-          ? 'Srednja'
-          : 'Niska'}
-    </strong>
+  <div className="ai-insight-row">
+    <span className="ai-row-icon">◷</span>
+
+    <div>
+      <p>Best time to visit</p>
+      <strong>
+        {estimatedWaitTime <= 15
+          ? 'Now'
+          : estimatedWaitTime <= 35
+            ? 'After 3 PM'
+            : 'Later today'}
+      </strong>
+    </div>
   </div>
 
-  <div className="insight-item">
-    <span>Temeljeno na</span>
-    <strong>{reports.length} korisničkih prijava</strong>
+  <div className="ai-insight-row">
+    <span className="ai-row-icon">↗</span>
+
+    <div>
+      <p>Peak hours</p>
+      <strong>11 AM – 1 PM</strong>
+    </div>
   </div>
+
+  <button
+  type="button"
+  className="ai-recommendation-button"
+  onClick={handleAiRecommendation}
+  disabled={isAiLoading}
+>
+  {isAiLoading ? 'Generating recommendation...' : '✨ Get AI recommendation'}
+</button>
+
+{aiRecommendation && (
+  <div className="ai-result-box">
+    {aiRecommendation}
+  </div>
+)}
+
+{aiError && (
+  <div className="ai-error-box">
+    {aiError}
+  </div>
+)}
 </section>
 
       

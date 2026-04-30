@@ -1,9 +1,11 @@
 import BottomNavigation from '../components/BottomNavigation'
+import { useUserProgress } from '../context/UserProgressContext'
 
 function Profile() {
-  const userPoints = 0
-  const reliabilityScore = 50
-  const nextLevelPoints = 50
+  const { progress, contributorLevel, nextLevelInfo } = useUserProgress()
+const userPoints = progress.points
+const reliabilityScore = progress.reliabilityScore
+const nextLevelPoints = nextLevelInfo.requiredPoints
 
   return (
     <main className="profile-page">
@@ -13,7 +15,7 @@ function Profile() {
 
           <div>
             <h1>Your Profile</h1>
-            <p>New User</p>
+            <p>{contributorLevel}</p>
           </div>
         </div>
 
@@ -27,14 +29,16 @@ function Profile() {
         <p className="section-label">Contributor level</p>
 
         <div className="profile-row">
-          <span>New User</span>
-          <span>{nextLevelPoints} pts to Active Contributor</span>
+          <span>{contributorLevel}</span>
+          <span>
+  {nextLevelInfo.remainingPoints} {nextLevelInfo.label}
+</span>
         </div>
 
         <div className="progress-track">
           <div
             className="progress-fill"
-            style={{ width: `${(userPoints / nextLevelPoints) * 100}%` }}
+            style={{ width: `${Math.min((userPoints / nextLevelPoints) * 100, 100)}%` }}
           />
         </div>
 
@@ -103,7 +107,9 @@ function Profile() {
       </section>
 
       <section className="profile-message">
-        Submit your first crowd report to start earning points and building your contributor profile.
+        {userPoints === 0
+  ? 'Submit your first crowd report to start earning points and building your contributor profile.'
+  : `You have submitted ${progress.reports} reports and earned ${userPoints} points.`}
       </section>
 
       <BottomNavigation />

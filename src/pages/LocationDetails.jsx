@@ -2,6 +2,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { locations } from '../data/locations'
 import { calculateEstimatedWaitTime } from '../services/waitTimeService'
+import { useUserProgress } from '../context/UserProgressContext'
 
 function getCategoryIcon(category) {
   if (category === 'Pošta') return '📮'
@@ -58,6 +59,7 @@ function LocationDetails() {
 
   const [reports, setReports] = useState(location.reports)
   const [newReport, setNewReport] = useState('')
+  const { addCrowdReport } = useUserProgress()
 
   const estimatedWaitTime = calculateEstimatedWaitTime(reports)
   const status = getStatus(estimatedWaitTime)
@@ -77,6 +79,7 @@ function LocationDetails() {
 
     setReports([...reports, reportValue])
     setNewReport('')
+    addCrowdReport()
   }
 
   return (

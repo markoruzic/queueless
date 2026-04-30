@@ -1872,3 +1872,40 @@ main,
   font-size: 13px;
   margin-top: 10px;
 }
+
+.score-breakdown {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.score-breakdown div {
+  background: #ffffff;
+  border: 1px solid #dadee5;
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.score-breakdown span {
+  display: block;
+  color: #6b7280;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.score-breakdown strong {
+  color: #0a1a39;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.leaderboard-list {
+  display: grid;
+  gap: 12px;
+}
+
+.leaderboard-card-current {
+  border-color: rgba(67, 107, 179, 0.35);
+  background: #f8fbff;
+}

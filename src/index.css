@@ -916,3 +916,62 @@ button {
   object-fit: contain;
   display: block;
 }
+
+.report-hint {
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+
+.search-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search-wrapper input {
+  padding-right: 44px;
+}
+
+.search-clear-button {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  padding: 0;
+  background: #f3f4f6;
+  color: #4b5563;
+  font-size: 20px;
+  line-height: 1;
+  box-shadow: none;
+}
+
+.map-empty-state {
+  background: white;
+  color: #6b7280;
+  border-radius: 14px;
+  padding: 10px 12px;
+  font-size: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.empty-results-card {
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+  text-align: center;
+  margin-top: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+}
+
+.empty-results-card h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.empty-results-card p {
+  color: #6b7280;
+}

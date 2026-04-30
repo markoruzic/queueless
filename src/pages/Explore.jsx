@@ -3,7 +3,17 @@ import LocationCard from '../components/LocationCard'
 import BottomNavigation from '../components/BottomNavigation'
 import { locations } from '../data/locations'
 
-const categories = ['Sve', 'Pošta', 'Banka', 'Ljekarna']
+const categories = [
+  'Sve',
+  'Pošta',
+  'Banka',
+  'Ljekarna',
+  'Bolnica',
+  'Kafić',
+  'Restoran',
+  'Trgovina',
+  'Teretana'
+]
 
 function Explore() {
   const [search, setSearch] = useState('')
@@ -27,13 +37,24 @@ function Explore() {
         <p>Pregledaj lokacije i pronađi najkraće čekanje.</p>
       </section>
 
-      <input
-        type="text"
-        placeholder="Pretraži lokaciju..."
-        value={search}
-        onChange={(event) => setSearch(event.target.value)}
-      />
+      <div className="search-wrapper">
+  <input
+    type="text"
+    placeholder="Pretraži lokaciju..."
+    value={search}
+    onChange={(event) => setSearch(event.target.value)}
+  />
 
+  {search && (
+    <button
+      type="button"
+      className="search-clear-button"
+      onClick={() => setSearch('')}
+    >
+      ×
+    </button>
+  )}
+</div>
       <div className="category-chips explore-chips">
         {categories.map((item) => (
           <button
@@ -46,6 +67,17 @@ function Explore() {
           </button>
         ))}
       </div>
+
+      {filteredLocations.length > 0 ? (
+  filteredLocations.map((location) => (
+    <LocationCard key={location.id} location={location} />
+  ))
+) : (
+  <div className="empty-results-card">
+    <h3>Nema pronađenih lokacija</h3>
+    <p>Pokušaj promijeniti pretragu ili odabrati drugu kategoriju.</p>
+  </div>
+)}
 
       <section className="explore-list">
         <div className="section-header">

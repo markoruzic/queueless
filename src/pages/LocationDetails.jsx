@@ -121,7 +121,9 @@ function LocationDetails() {
 
       <section className="report-card">
         <h2>Report crowd level</h2>
-
+        <p className="report-hint">
+  Unesi trenutno vrijeme čekanja u minutama. Prihvaćamo vrijednosti od 1 do 180 minuta.
+</p>
         <form onSubmit={handleSubmit} className="report-form">
           <input
             type="number"

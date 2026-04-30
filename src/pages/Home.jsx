@@ -5,7 +5,17 @@ import { locations } from '../data/locations'
 import BottomNavigation from '../components/BottomNavigation'
 import logo from '../assets/Logo.png'
 
-const categories = ['Sve', 'Pošta', 'Banka', 'Ljekarna']
+const categories = [
+  'Sve',
+  'Pošta',
+  'Banka',
+  'Ljekarna',
+  'Bolnica',
+  'Kafić',
+  'Restoran',
+  'Trgovina',
+  'Teretana'
+]
 
 function Home() {
   const [search, setSearch] = useState('')
@@ -32,12 +42,24 @@ function Home() {
   <h1>QueueLess</h1>
 </div>
 
-        <input
-          type="text"
-          placeholder="Pretraži lokaciju..."
-          value={search}
-          onChange={(event) => setSearch(event.target.value)}
-        />
+        <div className="search-wrapper">
+  <input
+    type="text"
+    placeholder="Pretraži lokaciju..."
+    value={search}
+    onChange={(event) => setSearch(event.target.value)}
+  />
+
+  {search && (
+    <button
+      type="button"
+      className="search-clear-button"
+      onClick={() => setSearch('')}
+    >
+      ×
+    </button>
+  )}
+</div>
 
         <div className="category-chips">
           {categories.map((item) => (
@@ -52,6 +74,12 @@ function Home() {
           ))}
         </div>
       </section>
+
+      {filteredLocations.length === 0 && (
+  <p className="map-empty-state">
+    Nema pronađenih lokacija za zadanu pretragu.
+  </p>
+)}
 
      
       <BottomNavigation />

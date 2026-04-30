@@ -4,7 +4,7 @@ import { locations } from '../data/locations'
 import { calculateEstimatedWaitTime } from '../services/waitTimeService'
 
 function getStatus(waitTime) {
-  if (waitTime <= 10) {
+  if (waitTime <= 15) {
     return {
       label: 'Vrlo mirno',
       className: 'status-low',
@@ -13,7 +13,7 @@ function getStatus(waitTime) {
     }
   }
 
-  if (waitTime <= 20) {
+  if (waitTime <= 35) {
     return {
       label: 'Umjerena gužva',
       className: 'status-medium',
@@ -100,6 +100,22 @@ function LocationDetails() {
         </div>
       </section>
 
+      <section className="report-card">
+        <h2>Report crowd level</h2>
+
+        <form onSubmit={handleSubmit} className="report-form">
+          <input
+            type="number"
+            min="1"
+            max="180"
+            placeholder="Unesi broj minuta"
+            value={newReport}
+            onChange={(event) => setNewReport(event.target.value)}
+          />
+          <button type="submit">Pošalji prijavu</button>
+        </form>
+      </section>
+
       <section className={`recommendation-card ${status.className}`}>
         <p className="section-label">If you go now</p>
         <h2>{status.message}</h2>
@@ -115,7 +131,9 @@ function LocationDetails() {
         <div className="trend-bar">
           <div
             className={`trend-fill ${status.className}`}
-            style={{ width: `${Math.min(estimatedWaitTime, 60)}%` }}
+            style={{
+  width: `${Math.min((estimatedWaitTime / 90) * 100, 100)}%`
+}}
           />
         </div>
 
@@ -148,21 +166,7 @@ function LocationDetails() {
         </button>
       </section>
 
-      <section className="report-card">
-        <h2>Report crowd level</h2>
-
-        <form onSubmit={handleSubmit} className="report-form">
-          <input
-            type="number"
-            min="1"
-            max="180"
-            placeholder="Unesi broj minuta"
-            value={newReport}
-            onChange={(event) => setNewReport(event.target.value)}
-          />
-          <button type="submit">Pošalji prijavu</button>
-        </form>
-      </section>
+      
 
       <section className="analytics-card">
         <h2>Sažetak prijava</h2>

@@ -22,7 +22,7 @@ export const locations = [
     waitTime: 7,
     reports: [5, 7, 9],
     coordinates: [45.8336, 16.0358]
-  }
+  },
   {
   id: 4,
   name: 'KBC Zagreb',

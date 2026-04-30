@@ -1,5 +1,6 @@
 /* ================= RESET & GLOBAL ================= */
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,9 +17,17 @@ body,
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #f5f7fb;
-  color: #1f2937;
+  font-family: 'Poppins', sans-serif;
+  color: var(--ql-navy);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: 'Poppins', sans-serif;
 }
 
 a {
@@ -978,4 +987,408 @@ button {
 
 .empty-results-card p {
   color: #6b7280;
+}
+
+:root {
+  --ql-primary: #436bb3;
+  --ql-navy: #0a1a39;
+  --ql-bg: #e8f0f9;
+  --ql-muted: #6b7280;
+  --ql-border: #dadee5;
+  --ql-white: #ffffff;
+  --ql-glass: rgba(255, 255, 255, 0.72);
+  --ql-glass-strong: rgba(255, 255, 255, 0.86);
+  --ql-shadow-soft: 0 10px 30px rgba(10, 26, 57, 0.08);
+  --ql-shadow-card: 0 12px 32px rgba(10, 26, 57, 0.1);
+  --ql-shadow-nav: 0 16px 40px rgba(10, 26, 57, 0.14);
+}
+
+html,
+body {
+  background: var(--ql-bg);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", sans-serif;
+  color: var(--ql-navy);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #edf3fb 0%, #e8f0f9 100%);
+}
+
+h1,
+h2,
+h3,
+strong {
+  color: var(--ql-navy);
+}
+
+p,
+span,
+.location-category,
+.details-category,
+.section-header span,
+.details-note,
+.report-hint,
+.trend-labels,
+.status-meta,
+.location-hero p,
+.location-hero span,
+.placeholder-card p,
+.empty-results-card p {
+  color: var(--ql-muted);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--ql-border);
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--ql-navy);
+  font-size: 16px;
+  box-shadow: 0 4px 16px rgba(10, 26, 57, 0.04);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #8b95a7;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: rgba(67, 107, 179, 0.45);
+  box-shadow: 0 0 0 4px rgba(67, 107, 179, 0.12);
+}
+
+button {
+  border: 1px solid transparent;
+  border-radius: 16px;
+  padding: 12px 14px;
+  font-size: 15px;
+  font-weight: 700;
+  background: var(--ql-primary);
+  color: var(--ql-white);
+  box-shadow: 0 10px 24px rgba(67, 107, 179, 0.2);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.back-button {
+  background: transparent;
+  color: var(--ql-primary);
+  box-shadow: none;
+  border: none;
+  padding: 0;
+  font-weight: 700;
+}
+
+.brand-row {
+  gap: 12px;
+}
+
+.brand-row h1 {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ql-navy);
+}
+
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+}
+
+.map-top-panel {
+  gap: 12px;
+}
+
+.map-top-panel input,
+.search-wrapper input {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(218, 222, 229, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.search-wrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.search-wrapper input {
+  margin-top: 0;
+  padding-right: 46px;
+}
+
+.search-clear-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  padding: 0;
+  border: 1px solid var(--ql-border);
+  background: rgba(232, 240, 249, 0.95);
+  color: var(--ql-muted);
+  font-size: 18px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  box-shadow: none;
+}
+
+.category-chips {
+  margin-top: 12px;
+  gap: 8px;
+}
+
+.chip {
+  flex: 0 0 auto;
+  border: 1px solid rgba(218, 222, 229, 0.95);
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--ql-navy);
+  border-radius: 999px;
+  padding: 10px 15px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.chip-active {
+  background: var(--ql-primary);
+  color: var(--ql-white);
+  border-color: var(--ql-primary);
+  box-shadow: 0 8px 18px rgba(67, 107, 179, 0.22);
+}
+
+.location-card,
+.status-card,
+.recommendation-card,
+.trend-card,
+.recommendation-details-card,
+.report-card,
+.analytics-card,
+.details-card,
+.placeholder-card,
+.empty-results-card {
+  background: var(--ql-glass-strong);
+  border: 1px solid rgba(218, 222, 229, 0.95);
+  box-shadow: var(--ql-shadow-card);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.location-card {
+  border-radius: 22px;
+}
+
+.status-card,
+.recommendation-card,
+.trend-card,
+.recommendation-details-card,
+.report-card,
+.analytics-card,
+.details-card,
+.placeholder-card {
+  border-radius: 24px;
+}
+
+.map-bottom-panel {
+  background: rgba(248, 251, 255, 0.78);
+  border: 1px solid rgba(218, 222, 229, 0.95);
+  box-shadow: var(--ql-shadow-card);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.bottom-navigation {
+  background: rgba(248, 251, 255, 0.82);
+  border: 1px solid rgba(218, 222, 229, 0.95);
+  box-shadow: var(--ql-shadow-nav);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  height: 68px;
+}
+
+.bottom-nav-item {
+  color: var(--ql-muted);
+  font-weight: 700;
+}
+
+.bottom-nav-item span {
+  font-size: 19px;
+}
+
+.bottom-nav-item small {
+  font-size: 11px;
+}
+
+.bottom-nav-item-active {
+  color: var(--ql-primary);
+}
+
+.location-icon,
+.placeholder-icon,
+.brand-icon {
+  background: rgba(232, 240, 249, 0.9);
+  color: var(--ql-primary);
+  border: 1px solid rgba(218, 222, 229, 0.95);
+  box-shadow: var(--ql-shadow-soft);
+}
+
+.location-icon {
+  border-radius: 18px;
+}
+
+.wait-badge,
+.status-pill {
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+.wait-low,
+.status-low {
+  background: rgba(67, 107, 179, 0.12);
+  color: var(--ql-primary);
+}
+
+.wait-medium,
+.status-medium {
+  background: rgba(10, 26, 57, 0.1);
+  color: var(--ql-navy);
+}
+
+.wait-high,
+.status-high {
+  background: var(--ql-navy);
+  color: var(--ql-white);
+}
+
+.analytics-box,
+.insight-item,
+.time-recommendation,
+.trend-summary {
+  background: rgba(232, 240, 249, 0.7);
+  border: 1px solid rgba(218, 222, 229, 0.88);
+  border-radius: 18px;
+}
+
+.section-label,
+.insight-item span,
+.time-recommendation span,
+.analytics-box span,
+.wait-time-box p,
+.eyebrow {
+  color: var(--ql-primary);
+}
+
+.ai-button {
+  background: rgba(67, 107, 179, 0.12);
+  color: var(--ql-primary);
+  border: 1px solid rgba(67, 107, 179, 0.18);
+  box-shadow: none;
+}
+
+.live-dot {
+  color: var(--ql-primary);
+}
+
+.trend-bar {
+  background: rgba(218, 222, 229, 0.85);
+}
+
+.trend-fill.status-low,
+.trend-fill.status-medium,
+.trend-fill.status-high {
+  background: linear-gradient(90deg, #436bb3 0%, #0a1a39 100%);
+}
+
+.queue-leaflet-popup .leaflet-popup-content-wrapper {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-radius: 20px !important;
+  padding: 0 !important;
+  border: 1px solid rgba(218, 222, 229, 0.95) !important;
+  box-shadow: 0 18px 40px rgba(10, 26, 57, 0.16) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+}
+
+.queue-leaflet-popup .leaflet-popup-content {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.queue-leaflet-popup .leaflet-popup-tip {
+  background: rgba(255, 255, 255, 0.92) !important;
+}
+
+.queue-leaflet-popup .map-popup {
+  padding: 16px;
+  gap: 6px;
+}
+
+.queue-leaflet-popup .popup-link {
+  display: block;
+  margin-top: 10px;
+  background: var(--ql-primary);
+  color: var(--ql-white) !important;
+  border-radius: 14px;
+  padding: 10px 12px;
+  text-align: center;
+  font-weight: 800;
+}
+
+.placeholder-page,
+.explore-page,
+.improved-details-page {
+  background: linear-gradient(180deg, #edf3fb 0%, #e8f0f9 100%);
+}
+
+.leaflet-control-attribution {
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+@media (max-width: 640px) {
+  .bottom-navigation {
+    left: 14px;
+    right: 14px;
+    bottom: 18px;
+  }
+
+  .map-bottom-panel {
+    left: 12px;
+    right: 12px;
+  }
+
+  .status-card,
+  .recommendation-card,
+  .trend-card,
+  .recommendation-details-card,
+  .report-card,
+  .analytics-card,
+  .placeholder-card {
+    border-radius: 22px;
+  }
 }

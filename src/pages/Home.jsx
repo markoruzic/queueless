@@ -3,6 +3,7 @@ import QueueMap from '../components/QueueMap'
 import LocationCard from '../components/LocationCard'
 import { locations } from '../data/locations'
 import BottomNavigation from '../components/BottomNavigation'
+import logo from '../assets/Logo.png'
 
 const categories = ['Sve', 'Pošta', 'Banka', 'Ljekarna']
 
@@ -27,9 +28,9 @@ function Home() {
 
       <section className="map-top-panel">
         <div className="brand-row">
-          <div className="brand-icon">Q</div>
-          <h1>QueueLess</h1>
-        </div>
+  <img src={logo} alt="QueueLess logo" className="brand-logo" />
+  <h1>QueueLess</h1>
+</div>
 
         <input
           type="text"

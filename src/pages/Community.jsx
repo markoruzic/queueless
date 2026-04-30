@@ -4,7 +4,9 @@ import { useUserProgress } from '../context/UserProgressContext'
 function Community() {
   const { progress, contributorLevel } = useUserProgress()
 
-  const yourScore = progress.points
+  const yourScore = Math.round(
+  progress.reliabilityScore * 0.6 + progress.points * 0.4
+  )
 
   const users = [
     {
@@ -70,7 +72,7 @@ function Community() {
 
               <div className="leaderboard-score">
                 <strong>{user.score}</strong>
-                <span>bodova</span>
+                <span>rezultat</span>
               </div>
             </div>
           ))}
@@ -110,9 +112,9 @@ function Community() {
         <p className="section-label">Kako funkcioniraju bodovi</p>
 
         <p>
-          Bodovi zajednice temelje se na korisničkim doprinosima. Slanjem točnih
-          prijava gužve skupljaš bodove, povećavaš pouzdanost i pomažeš drugim
-          korisnicima izbjeći nepotrebno čekanje.
+          Rezultat zajednice računa se prema formuli: 60% ocjena pouzdanosti i 40%
+          ukupni bodovi. Točne prijave povećavaju pouzdanost, a svaki doprinos donosi
+          bodove za napredak na ljestvici.
         </p>
 
         <div className="score-breakdown">

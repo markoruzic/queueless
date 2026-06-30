@@ -1,16 +1,49 @@
-# React + Vite
+# QueueLess
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+QueueLess je web aplikacija razvijena u sklopu TVZ Mc2 natjecanja. Ideja projekta je korisnicima omogućiti provjeru gužve i procijenjenog vremena čekanja na različitim lokacijama prije nego što dođu na lokaciju.
 
-Currently, two official plugins are available:
+Aplikacija je nastala kao odgovor na čest svakodnevni problem: ljudi dolaze u pošte, banke, menze, kafiće, restorane i javne ustanove bez informacije o trenutnom stanju gužve. QueueLess korisnicima daje brzu informaciju koja im pomaže bolje organizirati vrijeme i izbjeći nepotrebno čekanje.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Kontekst projekta
 
-## React Compiler
+Projekt je primarno izrađen za Mc2 natjecanje. U okviru natjecanja razvijena je ideja, poslovni model, prezentacijski materijali i funkcionalna web aplikacija. Repozitorij sadržava pregled projekta, dokumentaciju i razvojni kontekst.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tim
 
-## Expanding the ESLint configuration
+Projekt je razvijao Tim Interi.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Članovi tima:
+
+* David Dubravac – UI/UX i frontend
+* Karlo Tomić-Bobaš – UI/UX i frontend
+* Marko Ružić – razvoj aplikacije / programiranje
+
+## Glavne funkcionalnosti
+
+QueueLess aplikacija omogućuje:
+
+* prikaz lokacija na karti
+* pregled statusa gužve na lokacijama
+* prikaz procijenjenog vremena čekanja
+* pregled detalja pojedine lokacije
+* korisnički unos stanja gužve
+* mobile-first korištenje kroz browser
+* PWA pristup za korištenje aplikacije na mobilnim uređajima
+
+## Tehnologije
+
+Projekt je izrađen pomoću sljedećih tehnologija:
+
+* React
+* Vite
+* JavaScript
+* React Router
+* Leaflet / React Leaflet
+* HTML i CSS
+* PWA manifest
+* Vercel za deploy aplikacije
+* Git i GitHub za verzioniranje koda
+
+## Status projekta
+
+QueueLess je razvijen kao funkcionalni prototip za Mc2 natjecanje. Projekt prikazuje osnovnu ideju aplikacije, glavne korisničke tokove i mogućnost daljnjeg razvoja kroz naprednije funkcionalnosti poput AI predikcije gužve, notifikacija, B2B analitike i integracija s poslovnim korisnicima.
